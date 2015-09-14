@@ -29,8 +29,7 @@ module Mongo
 
             # http://www.mongodb.org/display/DOCS/findAndModify+Command
             begin
-              doc = where(query).find_and_modify(
-                update,
+              doc = where(query).find_and_update(
                 :new => true
               )
             rescue Moped::Errors::OperationFailure
