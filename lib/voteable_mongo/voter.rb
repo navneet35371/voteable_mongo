@@ -1,7 +1,7 @@
 module Mongo
   module Voter
     extend ActiveSupport::Concern
-
+    include Mongoid::Attributes::Dynamic
     included do
       scope :up_voted_for, lambda { |votee| where(:_id => { '$in' =>  votee.up_voter_ids }) }
       scope :down_voted_for, lambda { |votee| where(:_id => { '$in' =>  votee.down_voter_ids }) }

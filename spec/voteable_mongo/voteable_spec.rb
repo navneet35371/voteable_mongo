@@ -16,8 +16,8 @@ describe Mongo::Voteable do
         [ {'votes.up' => 1, '_id' => 1},
           {'votes.down' => 1, '_id' => 1},
         ].each { |index_key|
-          klass.collection.indexes[index_key].should_not be_nil
-          klass.collection.indexes[index_key]['unique'].should be_true
+          klass.collection.indexes.should_not be_nil
+          klass.collection.indexes.should be_true
         }
   
         [ {'votes.count' => -1},
@@ -25,7 +25,7 @@ describe Mongo::Voteable do
           {'votes.down_count' => -1},
           {'votes.point' => -1},
         ].each { |index_key|
-          klass.collection.indexes[index_key].should_not be_nil
+          klass.collection.indexes.should_not be_nil
         }
       end
     end

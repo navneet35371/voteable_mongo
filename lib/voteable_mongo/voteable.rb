@@ -15,6 +15,7 @@ module Mongo
     }
 
     included do
+      include Mongoid::Attributes::Dynamic
       include Mongo::Voteable::Voting
       include Mongo::Voteable::Integrations::Mongoid
       
